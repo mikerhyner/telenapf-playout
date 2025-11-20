@@ -1,6 +1,6 @@
 # telenapf-playout
 
-Artifacts and Code for Playout Sytem of Telenapf / Telezentralschweiz
+Artifacts for Playout Sytem of Telenapf / Telezentralschweiz
 
 Consisting of those main components:
 * VLC
