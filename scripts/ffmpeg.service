@@ -1,0 +1,14 @@
+[Unit]
+Description=FFMPEG SRT Stream
+After=network.target
+
+[Service]
+Type=simple
+User=telenapf
+Environment=PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin
+ExecStart=/home/telenapf/start_ffmpeg.sh
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+H1		{FONT-FAMILY: Arial; COLOR: blue;}
+BODY		{FONT-FAMILY: Arial; }
+P		{FONT-FAMILY: Arial; }
+DIV		{FONT-FAMILY: Arial; }
+TEXTAREA	{FONT-FAMILY: Arial; }
+FORM 		{FONT-FAMILY: Arial; }
+A:link          {BACKGROUND: none; COLOR: #000000; FONT-FAMILY: Arial; }
+A:active        {BACKGROUND: none; COLOR: #000000; FONT-FAMILY: Arial; TEXT-DECORATION: underline;}
+A:visited       {BACKGROUND: none; COLOR: #000000; FONT-FAMILY: Arial; }
+A:hover         {BACKGROUND: none; COLOR: #000000; FONT-FAMILY: Arial; }
+.title 		{BACKGROUND: none; COLOR: #000000; FONT-SIZE: 13px; FONT-WEIGHT: bold; FONT-FAMILY: Arial; TEXT-DECORATION: none;}
+table.tabelle     {FONT-FAMILY: Arial; FONT-SIZE: 12px;}
+

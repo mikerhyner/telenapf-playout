@@ -1,0 +1,67 @@
+--- index.html.orig	2021-03-11 18:46:20.490499790 +0100
++++ index.html	2021-03-11 20:15:07.878148586 +0100
+@@ -41,6 +41,9 @@
+ 		<script type="text/javascript" src="js/jquery.jstree.js"></script>
+ 		<script type="text/javascript" src="js/ui.js"></script>
+ 		<script type="text/javascript" src="js/controllers.js"></script>
++		<script src="node_modules/flvplayer/dist/flvplayer-control.js"></script>
++		<script src="node_modules/flvplayer/dist/flvplayer.js"></script>
++
+ 		<script type="text/javascript">
+ 		//<![CDATA[
+ 			var pollStatus	=	true;
+@@ -188,12 +191,6 @@
+ 				});
+ 				$('#viewContainer').animate({height: 'toggle'});
+ 			});
+-			/* delay script loading so we won't block if we have no net access */
+-			$.getScript('http://releases.flowplayer.org/js/flowplayer-3.2.6.min.js', function(data, textStatus){
+-				$('#player').empty();
+-				flowplayer("player", "http://releases.flowplayer.org/swf/flowplayer-3.2.7.swf");
+-				/* .getScript only handles success() */
+-			 });
+ 		//]]>
+ 		</script>
+ 	</head>
+@@ -247,11 +244,7 @@
+ 				<div id="libraryTree" class="ui-widget-content"></div>
+ 			</div>
+ 			<div id="viewContainer" class="ui-widget">
+-				<div id="mediaViewer" class="ui-widget-content">
+-					<div href="http://localhost:8081/stream.flv" style="display:block; width:100%" id="player">
+-						<p><?vlc gettext("Loading flowplayer...") ?><br/><?vlc gettext("If nothing appears, check your internet connection.") ?></p>
+-					</div>
+-				</div>
++				<div id="mediaViewer"  class="flvplayer-app"</div>
+ 			</div>
+ 			<div class="footer">
+ 				VLC <?vlc print(vlc.misc.version() .. ' - Lua Web Interface - <a id="mobileintflink" href="/mobile.html">Mobile Interface</a> - ' .. vlc.misc.copyright()) ?>
+@@ -283,5 +276,28 @@
+ 
+ 		dialogs("browse_window.html","stream_window.html","create_stream.html","offset_window.html","mosaic_window.html","equalizer_window.html","batch_window.html","error_window.html");
+ 		?>
++
++		<script>
++			// Create a local http-flv live stream
++			// https://github.com/zhw2590582/http-flv-streaming-demo
++
++			var flv = new FlvPlayer({
++				container: '.flvplayer-app',
++				url: 'stream.flv',
++				decoder: 'node_modules/flvplayer/dist/flvplayer-decoder-multiple.js',
++				debug: false,
++				live: true,
++				autoPlay: false,
++				hasAudio: true,
++				width: 640,
++				height: 360,
++				frameRate: 25,
++				cache: true,
++				buffer: 15,
++                                withCredentials: true,
++				cors: true,
++			});
++		</script>
++
+ 	</body>
+ </html>
