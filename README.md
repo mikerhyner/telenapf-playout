@@ -30,13 +30,16 @@ We have built a seperate FFMPEG for the system the playout runs on, but when bui
 `apt-get install ffmpeg`
 
 Start FFMPEG (using the unit file copied above):
+
 `systemctl start ffmpeg`
 
 ## Web (-GUI) part
 Under web, there are some simple web pages for the entry screen and the flvplayer.
 
 Short instructions:
-- copy index.php, restart_vlc.php, style.css to /var/www/html (or where the web root may be): <code>cp web/*.php web/*.css /var/www/html/</code>
-- go to /usr/share/vlc/lua/http: <code>cd /usr/share/vlc/lua/http</code>
-- unpack vlc_flvplayer.tar.gz: <code>tar xvzf vlc_flvplayer.tar.g</code>
-- run patch to change the index.html to use flvplayer (instead of flash player): <code>patch -p0 <  vlc_flvplayer.patch</code>
+- copy index.php, restart_vlc.php, style.css to /var/www/html (or where the web root may be): `cp web/*.php web/*.css /var/www/html/`
+- go to /usr/share/vlc/lua/http: `cd /usr/share/vlc/lua/http`
+- unpack vlc_flvplayer.tar.gz: `tar xvzf vlc_flvplayer.tar.gz`
+- run patch to change the index.html to use flvplayer (instead of flash player): `patch -p0 <  vlc_flvplayer.patch`
+
+(the last three steps have to be repeated when re-installing or updating vlc, because, afaik, it's web-gui stil uses flashplayer...)
